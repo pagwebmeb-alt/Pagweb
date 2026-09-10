@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cartilla de masajes y servicios de bienestar de By Mar.">
+  <title>By Mar — Cartilla de Masajes</title>
+  <style>
+    :root{
+      --brown:#432312;
+      --brown-2:#5a301b;
+      --cream:#f7eee5;
+      --cream-2:#fffaf5;
+      --beige:#ead9c8;
+      --text:#3f3028;
+      --muted:#76665b;
+      --line:#dfcfc0;
+      --white:#fffdfb;
+      --shadow:0 12px 30px rgba(67,35,18,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:var(--cream);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .topbar{
+      background:var(--brown);
+      color:white;
+      padding:10px 20px;
+      text-align:center;
+      font-size:.9rem;
+      letter-spacing:.08em;
+    }
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:72px 20px 62px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(117,69,38,.12), transparent 28%),
+        radial-gradient(circle at 88% 70%, rgba(117,69,38,.10), transparent 25%),
+        var(--cream-2);
+      border-bottom:1px solid var(--line);
+    }
+    .hero:before,.hero:after{
+      content:"";
+      position:absolute;
+      border:2px solid rgba(90,48,27,.16);
+      border-radius:50%;
+      width:260px;height:260px;
+    }
+    .hero:before{left:-170px;top:-100px}
+    .hero:after{right:-180px;bottom:-170px}
+    .script{
+      font-family:"Brush Script MT","Segoe Script",cursive;
+      font-size:clamp(3.8rem,10vw,7rem);
+      color:var(--brown);
+      line-height:.8;
+      margin-bottom:24px;
+    }
+    .eyebrow{
+      letter-spacing:.32em;
+      font-weight:700;
+      font-size:clamp(.95rem,2vw,1.25rem);
+      color:var(--brown);
+      margin:0 0 8px;
+    }
+    h1{
+      font-family:Georgia, "Times New Roman", serif;
+      letter-spacing:.13em;
+      font-size:clamp(2.5rem,7vw,5.3rem);
+      margin:0;
+      color:var(--brown);
+    }
+    .hero p{
+      max-width:680px;
+      margin:25px auto 0;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(67,35,18,.97);
+      box-shadow:0 4px 15px rgba(0,0,0,.12);
+    }
+    .nav-inner{
+      max-width:1150px;
+      margin:auto;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:5px;
+      padding:8px;
+    }
+    .nav a{
+      text-decoration:none;
+      color:#fff;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:.9rem;
+    }
+    .nav a:hover{background:rgba(255,255,255,.13)}
+    .container{max-width:1150px;margin:auto;padding:55px 20px}
+    .section-title{text-align:center;margin-bottom:30px}
+    .section-title h2{
+      font-family:Georgia,serif;
+      color:var(--brown);
+      letter-spacing:.09em;
+      font-size:clamp(1.7rem,4vw,2.5rem);
+      margin:0 0 8px;
+    }
+    .section-title p{margin:0;color:var(--muted)}
+    .services{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .service{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:21px;
+      box-shadow:var(--shadow);
+    }
+    .service-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      border-bottom:1px solid var(--line);
+      padding-bottom:13px;
+      margin-bottom:13px;
+    }
+    .service h3{
+      margin:0;
+      color:var(--brown);
+      text-transform:uppercase;
+      font-size:1rem;
+      letter-spacing:.08em;
+    }
+    .tag{
+      background:var(--beige);
+      color:var(--brown);
+      border-radius:999px;
+      padding:5px 10px;
+      white-space:nowrap;
+      font-size:.78rem;
+      font-weight:700;
+    }
+    .benefits{margin:0;padding-left:19px;color:var(--muted);font-size:.93rem}
+    .prices{margin-top:15px;display:flex;flex-wrap:wrap;gap:8px}
+    .price{
+      background:var(--brown);
+      color:#fff;
+      border-radius:9px;
+      padding:7px 11px;
+      font-weight:700;
+      font-size:.9rem;
+    }
+    .price span{font-weight:400;opacity:.82;margin-right:4px}
+    .combos{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+    .combo-card{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .combo-card h3{
+      text-align:center;
+      color:var(--brown);
+      margin:0 0 17px;
+      letter-spacing:.08em;
+      font-size:1.1rem;
+    }
+    .combo-list{display:grid;gap:13px}
+    .combo{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+      padding:12px 0;
+      border-top:1px dashed var(--line);
+    }
+    .combo:first-child{border-top:0;padding-top:0}
+    .combo-name{font-size:.94rem}
+    .combo-price{
+      flex:none;
+      background:var(--brown);
+      color:white;
+      padding:6px 12px;
+      border-radius:999px;
+      font-weight:700;
+    }
+    .premium{
+      grid-column:1/-1;
+      background:#f4e4d9;
+      border:2px solid var(--brown);
+    }
+    .promo-contact{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      margin-top:35px;
+    }
+    .promo,.contact{
+      border-radius:22px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .promo{
+      background:var(--brown);
+      color:white;
+      text-align:center;
+    }
+    .promo small{letter-spacing:.18em;font-weight:700}
+    .promo strong{display:block;font-size:4rem;line-height:1;margin:9px 0}
+    .promo p{margin:0;opacity:.9}
+    .contact{background:var(--white);border:1px solid var(--line)}
+    .contact h2{margin-top:0;color:var(--brown);font-family:Georgia,serif}
+    .contact-item{margin:13px 0}
+    .contact-item b{color:var(--brown)}
+    .contact a{
+      display:inline-block;
+      margin-top:12px;
+      padding:11px 18px;
+      background:var(--brown);
+      color:white;
+      text-decoration:none;
+      border-radius:999px;
+      font-weight:700;
+    }
+    footer{
+      background:var(--brown);
+      color:white;
+      text-align:center;
+      padding:23px 20px;
+      letter-spacing:.08em;
+    }
+    .note{
+      margin-top:25px;
+      padding:17px;
+      background:#efe1d5;
+      border-radius:14px;
+      text-align:center;
+      color:var(--brown);
+    }
+    @media(max-width:760px){
+      .services,.combos,.promo-contact{grid-template-columns:1fr}
+      .premium{grid-column:auto}
+      .hero{padding:52px 18px}
+      .container{padding:42px 15px}
+      .service-head{flex-direction:column}
+      .nav a{font-size:.78rem;padding:8px 9px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">♡ BY MAR · BIENESTAR Y MASAJES ♡</div>
+
+  <header class="hero">
+    <div class="script">By Mar</div>
+    <p class="eyebrow">CARTILLA DE</p>
+    <h1>MASAJES</h1>
+    <p>Un espacio pensado para relajarte, cuidar tu cuerpo y regalarte un momento de bienestar.</p>
+  </header>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#servicios">Servicios</a>
+      <a href="#combos">Combos</a>
+      <a href="#premium">Experiencia Premium</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="servicios" class="container">
+      <div class="section-title">
+        <h2>SERVICIOS</h2>
+        <p>Elegí el masaje que mejor se adapte a lo que necesitás.</p>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <div class="service-head"><h3>Relajante</h3><span class="tag">Bienestar</span></div>
+          <ul class="benefits"><li>Relaja y reduce el estrés</li><li>Disminuye la tensión muscular</li><li>Brinda bienestar general</li></ul>
+          <div class="prices"><div class="price"><span>Cuerpo completo · 1 hora</span>$20.000</div><div class="price"><span>Zonal · 30/40 min</span>$15.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Descontracturante</h3><span class="tag">40 min</span></div>
+          <ul class="benefits"><li>Alivia contracturas</li><li>Libera tensiones musculares</li><li>Reduce el dolor</li></ul>
+          <div class="prices"><div class="price"><span>40 min</span>$20.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Antiestrés</h3><span class="tag">Relajación</span></div>
+          <ul class="benefits"><li>Reduce el estrés y la ansiedad</li><li>Mejora el sueño</li><li>Relaja cuerpo y mente</li></ul>
+          <div class="prices"><div class="price"><span>Cuerpo completo · 1 hora</span>$20.000</div><div class="price"><span>Zonal · 30/40 min</span>$15.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Circulatorio</h3><span class="tag">Piernas cansadas</span></div>
+          <ul class="benefits"><li>Activa la circulación</li><li>Reduce la pesadez</li><li>Disminuye la hinchazón</li></ul>
+          <div class="prices"><div class="price"><span>30/40 min</span>$18.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Drenaje linfático</h3><span class="tag">40 min</span></div>
+          <ul class="benefits"><li>Estimula el sistema linfático</li><li>Elimina líquidos y toxinas</li><li>Mejora la apariencia de la piel</li></ul>
+          <div class="prices"><div class="price"><span>40 min</span>$20.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Con piedras calientes</h3><span class="tag">30/40 min</span></div>
+          <ul class="benefits"><li>Relaja profundamente</li><li>Alivia tensiones</li><li>Mejora la circulación</li></ul>
+          <div class="prices"><div class="price"><span>30/40 min</span>$25.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Esferas chinas</h3><span class="tag">30/40 min</span></div>
+          <ul class="benefits"><li>Estimula la circulación</li><li>Tonifica y reafirma la piel</li><li>Reduce celulitis y edemas</li></ul>
+          <div class="prices"><div class="price"><span>30/40 min</span>$18.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Aromaterapia con pindas</h3><span class="tag">1 hora</span></div>
+          <ul class="benefits"><li>Desintoxica y equilibra la energía</li><li>Alivia el estrés con aromas y calor</li><li>Relajación profunda y aromática</li></ul>
+          <div class="prices"><div class="price"><span>1 hora</span>$15.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Drenaje facial</h3><span class="tag">40 min</span></div>
+          <ul class="benefits"><li>Reduce la hinchazón y bolsas</li><li>Mejora la circulación facial</li><li>Aporta luminosidad</li></ul>
+          <div class="prices"><div class="price"><span>40 min</span>$12.000</div></div>
+        </article>
+
+        <article class="service">
+          <div class="service-head"><h3>Limpieza facial</h3><span class="tag">1 hora</span></div>
+          <ul class="benefits"><li>Limpia en profundidad</li><li>Elimina impurezas</li><li>Hidrata y revitaliza la piel</li></ul>
+          <div class="prices"><div class="price"><span>1 hora</span>$20.000</div></div>
+        </article>
+      </div>
+
+      <div class="note"><strong>¿No sabés cuál elegir?</strong> ¡Consultá! La consulta no molesta.</div>
+    </section>
+
+    <section id="combos" class="container">
+      <div class="section-title">
+        <h2>COMBOS</h2>
+        <p>Combinaciones especiales para una experiencia más completa.</p>
+      </div>
+
+      <div class="combos">
+        <article class="combo-card">
+          <h3>COMBO RELAX ♡</h3>
+          <div class="combo-list">
+            <div class="combo"><span class="combo-name">Relajante + Drenaje facial</span><span class="combo-price">$25.000</span></div>
+            <div class="combo"><span class="combo-name">Drenaje facial + Antiestrés</span><span class="combo-price">$20.000</span></div>
+            <div class="combo"><span class="combo-name">Masaje piedras calientes + Masaje relajante</span><span class="combo-price">$25.000</span></div>
+          </div>
+        </article>
+
+        <article class="combo-card">
+          <h3>COMBO CORPORALES ♡</h3>
+          <div class="combo-list">
+            <div class="combo"><span class="combo-name">Masaje circulatorio + Drenaje linfático</span><span class="combo-price">$25.000</span></div>
+            <div class="combo"><span class="combo-name">Drenaje linfático + Esferas chinas</span><span class="combo-price">$25.000</span></div>
+            <div class="combo"><span class="combo-name">Descontracturante + Piedras calientes</span><span class="combo-price">$22.000</span></div>
+          </div>
+        </article>
+
+        <article class="combo-card">
+          <h3>COMBO FACIAL ♡</h3>
+          <div class="combo-list">
+            <div class="combo"><span class="combo-name">Limpieza facial + Drenaje facial</span><span class="combo-price">$25.000</span></div>
+            <div class="combo"><span class="combo-name">Limpieza facial + Masaje relajante zonal</span><span class="combo-price">$22.000</span></div>
+          </div>
+        </article>
+
+        <article id="premium" class="combo-card premium">
+          <h3>EXPERIENCIA PREMIUM ♡</h3>
+          <div class="combo-list">
+            <div class="combo"><span class="combo-name">★ Relajante cuerpo completo + Limpieza + Drenaje facial</span><span class="combo-price">$40.000</span></div>
+            <div class="combo"><span class="combo-name">★ Masaje con piedras calientes + Limpieza facial + Drenaje facial</span><span class="combo-price">$35.000</span></div>
+            <div class="combo"><span class="combo-name">★ Masaje relajante + Drenaje linfático + Limpieza facial</span><span class="combo-price">$45.000</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="contacto">
+      <div class="promo-contact">
+        <div class="promo">
+          <small>PROMO CUMPLEAÑOS</small>
+          <strong>20%</strong>
+          <p>de descuento el día de tu cumpleaños</p>
+        </div>
+        <div class="contact">
+          <h2>CONTACTO ♡</h2>
+          <div class="contact-item"><b>📞 Teléfono:</b> 3518627213</div>
+          <div class="contact-item"><b>📷 Instagram:</b> _glow.bymar_</div>
+          <div class="contact-item"><b>📍 Atención:</b> a domicilio o también en mi lugar de trabajo.</div>
+          <a href="https://wa.me/543518627213" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>✨ Tu bienestar es mi prioridad ✨</footer>
+</body>
+</html>
