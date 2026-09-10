@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ByMar Makeup | Inicio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap');
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:#4b3a32;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  background:
+    radial-gradient(circle at 12% 12%,rgba(255,255,255,.35),transparent 25%),
+    radial-gradient(circle at 88% 82%,rgba(255,255,255,.25),transparent 25%),
+    linear-gradient(135deg,#d8bfa8 0%,#cdb09a 48%,#e1cbb8 100%);
+}
+.wrap{width:min(1050px,92%);margin:auto}
+header{text-align:center;padding:60px 20px 25px}
+.brand{
+  display:inline-block;padding:18px 40px;border-radius:28px;
+  background:rgba(255,250,246,.88);box-shadow:0 16px 42px rgba(75,55,45,.15)
+}
+.brand .script{font:5rem 'Great Vibes',cursive;color:#a96e73;line-height:.8}
+.brand .sub{
+  margin-top:13px;font:500 .75rem Montserrat,sans-serif;
+  letter-spacing:.45em;color:#806d65
+}
+.intro{text-align:center;padding:20px 0 45px}
+.intro h1{font-size:clamp(3rem,7vw,5.5rem);font-weight:300;margin:0}
+.intro p{font:500 .8rem Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#6f5c55;margin-top:14px}
+.menu{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  padding:25px 0 75px
+}
+.card{
+  text-decoration:none;color:#493a35;text-align:center;
+  min-height:280px;padding:34px 18px;border-radius:30px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(255,250,246,.9);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 18px 42px rgba(75,55,45,.14);
+  transition:transform .25s,box-shadow .25s;cursor:pointer
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 25px 52px rgba(75,55,45,.22)}
+.icon{
+  width:86px;height:86px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:2.2rem;margin-bottom:20px;
+  background:linear-gradient(145deg,#f8e8d8,#eed6c9)
+}
+.card h2{font-size:2rem;font-weight:400;font-style:italic;margin:0 0 8px}
+.card span{font:500 .68rem Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8a7168}
+footer{text-align:center;padding:25px;background:rgba(255,250,246,.38);color:#6f5c55;font:500 .7rem Montserrat,sans-serif;letter-spacing:.16em}
+@media(max-width:850px){.menu{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){header{padding-top:35px}.brand{padding:16px 25px}.brand .script{font-size:4rem}.menu{grid-template-columns:1fr}.card{min-height:220px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="brand">
+    <div class="script">ByMar</div>
+    <div class="sub">MAKEUP</div>
+  </div>
+</header>
+
+<section class="intro wrap">
+  <h1>Elegí tu experiencia</h1>
+  <p>Maquillaje · Belleza · Eventos</p>
+</section>
+
+<main class="menu wrap">
+  <a class="card" href="halloween.html">
+    <div class="icon">🎃</div>
+    <h2>Halloween</h2>
+    <span>Maquillaje artístico</span>
+  </a>
+
+  <a class="card" href="social.html">
+    <div class="icon">✨</div>
+    <h2>Social</h2>
+    <span>Maquillaje social & quinceañeras</span>
+  </a>
+
+  <a class="card" href="novia.html">
+    <div class="icon">👰</div>
+    <h2>Novia</h2>
+    <span>Experiencias para novias</span>
+  </a>
+
+  <a class="card" href="infantil.html">
+    <div class="icon">🎨</div>
+    <h2>Infantil</h2>
+    <span>Glitter bar & pintacaritas</span>
+  </a>
+</main>
+
+<footer>BYMAR MAKEUP · TU MOMENTO, TU LOOK</footer>
+
+</body>
+</html>
